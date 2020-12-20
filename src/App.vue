@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <nav-bar />
-    <div>Content</div>
+  <div id="app" class="app">
+    <nav-bar class="app__nav-bar" />
+    <router-view class="app__content"/>
   </div>
 </template>
 
@@ -21,7 +21,6 @@ body,
   margin: 0
   padding: 0
   height: 100%
-
 
 #app
   background-color: #d9d9d9
