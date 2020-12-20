@@ -5,6 +5,9 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+// custom filters
+import './filters/index';
+
 new Vue({
   store,
   router,
