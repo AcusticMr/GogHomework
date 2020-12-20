@@ -7,8 +7,17 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "task/client" */ '../views/Home.vue')
-  }
+    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
+  },
+  
+  {
+    path: '/game/:itemName',
+    name: 'Game info page',
+    component: () => import(/* webpackChunkName: "game/:itemName" */ '../views/Game.vue'),
+    meta: {
+      requiresAuth: true
+    },
+  },
 ]
 
 const router = new VueRouter({
