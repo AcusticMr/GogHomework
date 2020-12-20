@@ -27,9 +27,7 @@ body,
   font-family: Helvetica, Arial, sans-serif
 
 .app
-  &__nav-bar
-    margin-bottom: 64px
 
   &__content
-    padding: 0 150px
+    padding: 32px 150px 0
 </style>
