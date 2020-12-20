@@ -11,8 +11,16 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: Helvetica, Arial, sans-serif;
-}
+<style lang="sass">
+html,
+body,
+#app
+  margin: 0
+  padding: 0
+  height: 100%
+
+
+#app
+  background-color: #d9d9d9
+  font-family: Helvetica, Arial, sans-serif
 </style>
