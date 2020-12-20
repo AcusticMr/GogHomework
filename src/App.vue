@@ -25,4 +25,11 @@ body,
 #app
   background-color: #d9d9d9
   font-family: Helvetica, Arial, sans-serif
+
+.app
+  &__nav-bar
+    margin-bottom: 64px
+
+  &__content
+    padding: 0 150px
 </style>
