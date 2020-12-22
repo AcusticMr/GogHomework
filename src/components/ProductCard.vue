@@ -50,7 +50,7 @@ export default {
 
     // banner redirect to item page
     redirect() {
-      window.open(this.redirectUrl,"_self");
+      this.$router.push(this.item.redirectUrl);
     },
 
     addToCart() {

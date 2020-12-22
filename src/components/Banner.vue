@@ -30,7 +30,7 @@ export default {
   methods: {
     // banner redirect to item page
     redirect() {
-      window.open(this.redirectUrl,"_self");
+      this.$router.push(this.redirectUrl);
     }
   }
 }

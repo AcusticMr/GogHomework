@@ -9,16 +9,17 @@
 import Cart from "@/components/Cart";
 
 export default {
-methods: {
-  // logo redirect to main page
-  logoRedirect() {
-    window.open("/","_self");
   name: "NavBar",
   components: {
     Cart
   },
+
+  methods: {
+    // logo redirect to main page
+    logoRedirect() {
+      this.$router.push('/');
+    }
   }
-}
 }
 </script>
 
