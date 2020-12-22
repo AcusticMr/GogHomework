@@ -1,24 +1,24 @@
 <template>
   <div class="product-card">
     <div @click="redirect" class="product-card__img-wrapper">
-      <img class="product-card__img" :src="imgUrl" alt="product-img">
+      <img class="product-card__img" :src="item.imgUrl" alt="product-img">
     </div>
 
     <div class="product-card__description">
       <div @click="redirect" class="product-card__title">
-        <h3>{{ title }}</h3>
+        <h3>{{ item.title }}</h3>
       </div>
 
       <div class="product-card__values">
-        <discount-badge v-if="discountedValue" class="product-card__discount" :discount-percentage="discountPercentage" />
+        <discount-badge v-if="item.discountedValue && item.state === 'available'" class="product-card__discount" :discount-percentage="item.discountPercentage" />
 
         <price-button
           @click="addToCart"
           class="product-card__value"
-          :state="state"
-          :base-value="baseValue"
-          :discounted-value="discountedValue"
-          :discount-percentage="discountPercentage"
+          :state="item.state"
+          :base-value="item.baseValue"
+          :discounted-value="item.discountedValue"
+          :discount-percentage="item.discountPercentage"
         />
       </div>
     </div>
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { mapActions } from  'vuex';
+
 import PriceButton from "@/components/PriceButton";
 import DiscountBadge from "@/components/DiscountBadge";
 
@@ -36,42 +38,23 @@ export default {
     DiscountBadge
   },
   props: {
-    title: {
-      type: String,
+    item: {
+      type: Object,
       required: true
-    },
-    imgUrl: {
-      type: String,
-      required: true
-    },
-    redirectUrl: {
-      type: String,
-      required: true
-    },
-    state: {
-      type: String,
-      required: true
-    },
-    baseValue: {
-      type: Number,
-      default: null
-    },
-    discountedValue: {
-      type: Number,
-      default: null
-    },
-    discountPercentage: {
-      type: Number,
-      default: null
     }
   },
   methods: {
+    ...mapActions({
+      'addItem': 'Cart/addItem',
+    }),
+
     // banner redirect to item page
     redirect() {
       window.open(this.redirectUrl,"_self");
     },
-    addToCart() {
 
+    addToCart() {
+      this.addItem(this.item);
     }
   }
 }
@@ -98,9 +81,12 @@ export default {
     flex-grow: 1
 
   &__title
-    flex-grow: 1
+    max-height: 32px
     padding: 8px
     cursor: pointer
+    text-overflow: ellipsis
+    overflow: hidden
+    word-break: break-word
 
     h3
       margin: 0
