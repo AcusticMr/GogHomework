@@ -13,7 +13,7 @@
         <discount-badge v-if="item.discountedValue && item.state === 'available'" class="product-card__discount" :discount-percentage="item.discountPercentage" />
 
         <price-button
-          @click="addToCart"
+          @addToCart="addToCart"
           class="product-card__value"
           :state="item.state"
           :base-value="item.baseValue"

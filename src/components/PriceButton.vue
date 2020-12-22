@@ -2,11 +2,11 @@
   <div @click="emitClick" class="price-button" :class="{ 'price-button--disabled': (state === 'owned') }">
     <span v-if="state === 'owned'" class="price-button__label--disabled">OWNED</span>
 
-    <span v-if="state === 'in_cart'" class="price-button__label">IN CART</span>
+    <span v-else-if="state === 'in_cart'" class="price-button__label">IN CART</span>
 
-    <span v-if="state === 'discounted'" class="price-button__label">{{ discountedValue | price }}</span>
+    <span v-else-if="state === 'available' && discountedValue" class="price-button__label">{{ discountedValue | price }}</span>
 
-    <span v-if="state === 'available'" class="price-button__label">{{ baseValue | price }}</span>
+    <span v-else class="price-button__label">{{ baseValue | price }}</span>
   </div>
 </template>
 
@@ -24,17 +24,13 @@ export default {
     },
     discountedValue: {
       type: Number,
-      required: true
-    },
-    discountPercentage: {
-      type: Number,
-      required: true
-    },
+      default: 0
+    }
   },
   methods: {
     emitClick() {
       if(this.state === 'available') {
-        this.$emit('click');
+        this.$emit('addToCart');
       }
     }
   }
