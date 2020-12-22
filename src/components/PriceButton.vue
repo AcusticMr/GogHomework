@@ -50,9 +50,11 @@ export default {
   color: dimgray
   border: 1px solid dimgray
   border-radius: 4px
+  cursor: pointer
 
   &--disabled
     border-color: lightgrey
+    cursor: not-allowed
 
   &__label
     &--disabled

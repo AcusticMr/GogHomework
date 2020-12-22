@@ -42,7 +42,7 @@ export default {
   margin-top: 32px
   padding-bottom: 16px
   flex-direction: column
-  height: 600px
+  height: 550px
   width: 100%
 
   &__title

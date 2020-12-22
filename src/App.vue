@@ -16,18 +16,18 @@ export default {
 
 <style lang="sass">
 html,
-body,
-#app
+body
   margin: 0
   padding: 0
   height: 100%
 
 #app
+  min-height: 100%
   background-color: #d9d9d9
   font-family: Helvetica, Arial, sans-serif
 
 .app
-
   &__content
-    padding: 32px 150px 0
+    box-sizing: border-box
+    padding: 0 150px
 </style>

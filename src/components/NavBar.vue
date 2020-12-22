@@ -18,20 +18,21 @@ methods: {
 </script>
 
 <style lang="sass">
+$padding-vertical: 16px
+$nav-bar-height: 80px
+$nav-item-height: ($nav-bar-height - 2 * $padding-vertical)
+
 .nav-bar
   display: flex
   justify-content: space-between
+  align-items: center
   box-sizing: border-box
-  height: 96px
-  padding: 16px 150px
-  background-color: #ffffff
+  height: $nav-bar-height
+  padding: 0 150px
+  background-color: #d9d9d9
   box-shadow: 0 0 16px black
 
   &__logo
-    height: 64px
+    height: $nav-item-height
     cursor: pointer
-
-  &__cart
-    height: 64px
-    width: 64px
 </style>
