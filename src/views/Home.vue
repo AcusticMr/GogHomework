@@ -2,28 +2,49 @@
   <div class="home">
     <div class="home__banner">
       <banner
-        img-url="https://images.gog-statics.com/5bc58089e14771de0c1b872c529c8b8b150b87fe28c7e4db1856389526849bb3.jpg"
-        redirect-url="/game/witcher_adventure_game"
+        :img-url="banner.imgUrl"
+        :redirect-url="banner.redirectUrl"
       />
     </div>
     <div class="home__products">
-      products card
+      <div class="home__products-row">
+        <product-card
+          v-for="item in products"
+          :key="item.id"
+          :item="item"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import Banner from "@/components/Banner";
+import ProductCard from "@/components/ProductCard";
 
 export default {
   name: 'Home',
   components: {
     Banner,
+    ProductCard
   },
+
+  computed: {
+    ...mapState({
+      'products': state => state.Cart.products,
+      'banner': state => state.Cart.banner,
+    }),
+  }
 }
 </script>
 
 <style lang="sass">
 .home
   height: 100%
+
+  &__products-row
+    display: flex
+    justify-content: space-between
 </style>
