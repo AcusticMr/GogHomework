@@ -1,17 +1,22 @@
 <template>
   <div class="nav-bar">
     <img @click="logoRedirect" class="nav-bar__logo" src="../assets/logo.png" alt="gog.com logo">
-    <div class="nav-bar__cart">cart placeholder</div>
+    <cart class="nav-bar__cart" />
   </div>
 </template>
 
 <script>
+import Cart from "@/components/Cart";
+
 export default {
-name: "NavBar",
 methods: {
   // logo redirect to main page
   logoRedirect() {
     window.open("/","_self");
+  name: "NavBar",
+  components: {
+    Cart
+  },
   }
 }
 }
